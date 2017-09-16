@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+  <style type="text/css">
+  body {
+      font: 20px Montserrat, sans-serif;
+      line-height: 1.8;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+      color: #1abc9c !important;
+  }
+    .bg-1 { 
+      background-color: #DCDCDC; /* Light Gray */
+          }
+    .bg-2 { 
+      background-color: #1abc9c; /* Green */
+      color: #ffffff;
+  }
+  .bg-3 { 
+      background-color: #2f2f2f; /* Black Gray */
+      color: #fff;
+  }
+    .container-fluid {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+  </style>  
+
+
+
+  <body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Site</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Boom</a></li>
+          <li><a href="#">Baby</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- TITLE -->
+    <div class="col-sm-6 col-sm-offset-3 container text-center bg-1">
+      <div class="jumbotron">
+        <h1>Site</h1>
+        <p>Info about this site</p>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-sm-offset-3 text-center container-fluid bg-2">
+
+      <!-- FORM -->              <!-- action = the url where we want to POST -->
+      <form name="myForm" id="myForm" action="http://localhost:5000/users" method="POST">
+
+          <!-- NAME -->
+          <div id="name-group" class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" name="name" placeholder="boom">
+          </div>
+
+          <!-- EMAIL -->
+          <div id="email-group" class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" name="email" placeholder="boom@baby">
+          </div>
+
+          <button id="submit-button" class="btn btn-success">Submit <span class="fa fa-arrow-right"></span></button>
+      </form>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="col-sm-6 col-sm-offset-3 container-fluid bg-3 text-center">
+      <p>Sample site footer</p> 
+    </footer>
+  </body>
+
+  <script>
+
+    // POST
+    $(document).ready(function() {
+
+        //callback handler for form submit
+        $('#myForm').submit(function(event) {
+
+          // stop default action
+            event.preventDefault();
+
+            // get the form data
+            var formData = $(this).serializeArray();
+            var formURL = $(this).attr("action");
+
+            // process the form
+            $.ajax({
+                type        : 'POST',
+                url         : formURL, 
+                data        : formData,
+                dataType    : 'json',
+                            encode          : true,
+                success: function(data) {
+                      console.log(data);
+                      console.log('process sucess');
+                   },
+                error: function() {
+                      console.log('process error');
+                    },
+            })
+        });
+
+        //Submit  the FORM
+        $("form").submit(function(){ 
+          alert("Submitted");
+      });
+    });
+  </script>
+</html>
+
+
+
