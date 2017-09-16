@@ -10,45 +10,42 @@
   </head>
 
   <style type="text/css">
-  body {
-      font: 20px Montserrat, sans-serif;
-      line-height: 1.8;
-  }
-  p {font-size: 16px;}
-  .margin {margin-bottom: 45px;}
-  .navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    font-size: 12px;
-    letter-spacing: 5px;
-  }
-  .navbar-nav  li a:hover {
-      color: #1abc9c !important;
-  }
+    body {
+        font: 20px Montserrat, sans-serif;
+        line-height: 1.8;
+    }
+    p {font-size: 16px;}
+    .margin {margin-bottom: 45px;}
+    .navbar {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 12px;
+      letter-spacing: 5px;
+    }
+    .navbar-nav  li a:hover {
+        color: #1abc9c !important;
+    }
     .bg-1 { 
-      background-color: #DCDCDC; /* Light Gray */
-          }
+        background-color: #DCDCDC; /* Light Gray */
+    }
     .bg-2 { 
-      background-color: #1abc9c; /* Green */
-      color: #ffffff;
-  }
-  .bg-3 { 
-      background-color: #2f2f2f; /* Black Gray */
-      color: #fff;
-  }
-    .container-fluid {
-      padding-top: 70px;
-      padding-bottom: 70px;
+        background-color: #1abc9c; /* Green */
+        color: #ffffff;
+    }
+    .bg-3 { 
+        background-color: #2f2f2f; /* Black Gray */
+        color: #fff;
+    }
+      .container-fluid {
+        padding-top: 70px;
+        padding-bottom: 70px;
     }
   </style>  
 
-
-
   <body>
-
     <!-- NAVBAR -->
     <nav class="navbar navbar-inverse">
       <div class="container">
@@ -99,40 +96,39 @@
   </body>
 
   <script>
-
     // POST
     $(document).ready(function() {
 
-        //callback handler for form submit
-        $('#myForm').submit(function(event) {
+      //callback handler for form submit
+      $('#myForm').submit(function(event) {
 
-          // stop default action
-            event.preventDefault();
+        // stop default action
+        event.preventDefault();
 
-            // get the form data
-            var formData = $(this).serializeArray();
-            var formURL = $(this).attr("action");
+        // get the form data
+        var formData = $(this).serializeArray();
+        var formURL = $(this).attr("action");
 
-            // process the form
-            $.ajax({
-                type        : 'POST',
-                url         : formURL, 
-                data        : formData,
-                dataType    : 'json',
-                            encode          : true,
-                success: function(data) {
-                      console.log(data);
-                      console.log('process sucess');
-                   },
-                error: function() {
-                      console.log('process error');
-                    },
-            })
-        });
+        // process the form
+        $.ajax({
+          type        : 'POST',
+          url         : formURL, 
+          data        : formData,
+          dataType    : 'json',
+          encode      : true,
+          success: function(data) {
+            console.log(data);
+            console.log('process sucess');
+          },
+          error: function() {
+            console.log('process error');
+          },
+        })
+      });
 
-        //Submit  the FORM
-        $("form").submit(function(){ 
-          alert("Submitted");
+      //Submit  the FORM
+      $("form").submit(function(){ 
+        alert("Submitted");
       });
     });
   </script>
