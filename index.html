@@ -26,36 +26,62 @@
     </nav>
 
     <!-- TITLE -->
-    <div class="col-sm-6 col-sm-offset-3 container text-center bg-1">
-      <div class="jumbotron">
+    <div class="container-fluid text-center bg-1">
+      <div style="background:transparent !important" class="jumbotron">
         <h1>Site</h1>
         <p>Info about this site</p>
       </div>
     </div>
 
-    <div class="col-sm-6 col-sm-offset-3 text-center container-fluid bg-2">
+    <!-- FIRST CONTAINER -->
+    <div class="container-fluid bg-5">
 
-      <!-- FORM -->              <!-- action = the url where we want to POST -->
-      <form name="myForm" id="myForm" action="http://localhost:5000/users" method="POST">
+      <!-- FORM DIV -->
+      <div class="col-sm-6 col-sm-offset-3 text-center container bg-2">
 
-          <!-- NAME -->
-          <div id="name-group" class="form-group">
-              <label for="name">Name</label>
-              <input type="text" class="form-control" name="name" placeholder="boom">
-          </div>
+        <!-- FORM -->              <!-- action = the url where we want to POST -->
+        <form name="myForm" id="myForm" action="http://localhost:5000/users" method="POST">
 
-          <!-- EMAIL -->
-          <div id="email-group" class="form-group">
-              <label for="email">Email</label>
-              <input type="text" class="form-control" name="email" placeholder="boom@baby">
-          </div>
+            <!-- NAME -->
+            <div id="name-group" class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" placeholder="boom">
+            </div>
 
-          <button id="submit-button" class="btn btn-success">Submit <span class="fa fa-arrow-right"></span></button>
-      </form>
+            <!-- EMAIL -->
+            <div id="email-group" class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" name="email" placeholder="boom@baby">
+            </div>
+
+            <button id="submit-button" class="btn btn-success">Submit <span class="fa fa-arrow-right"></span></button>
+        </form>
+      </div>
     </div>
 
+    <!-- SECOND CONTAINER  -->
+    <div class="container-fluid bg-4 text-center">    
+      <h3 class="margin">Some things i like:</h3><br>
+      <h4 class="margin">(grid container can be redesigned or excluded completely depending on the project)</h3><br>
+      <div class="row">
+        <div class="col-sm-4">
+          <p>Rick and Morty</p>
+          <img src="images/RickMorty.jpeg" class="img-responsive margin" style="width:100%" alt="Image">
+        </div>
+        <div class="col-sm-4"> 
+          <p>Rock Climbing</p>
+          <img src="images/rock.jpeg" class="img-responsive margin" style="width:100%" alt="Image">
+        </div>
+        <div class="col-sm-4"> 
+          <p>Yoga.</p>
+          <img src="images/yoga.jpeg" class="img-responsive margin" style="width:100%" alt="Image">
+        </div>
+      </div>
+    </div>
+
+
     <!-- FOOTER -->
-    <footer class="col-sm-6 col-sm-offset-3 container-fluid bg-3 text-center">
+    <footer class="container-fluid bg-3 text-center">
       <p>Sample site footer</p> 
     </footer>
   </body>

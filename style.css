@@ -17,15 +17,22 @@ p {font-size: 16px;}
     color: #1abc9c !important;
 }
 .bg-1 { 
-    background-color: #DCDCDC; /* Light Gray */
-}
-.bg-2 { 
     background-color: #1abc9c; /* Green */
     color: #ffffff;
 }
+.bg-2 { 
+      background-color: #474e5d; /* Dark Blue */
+      color: #ffffff;
+  }
 .bg-3 { 
     background-color: #2f2f2f; /* Black Gray */
     color: #fff;
+}
+.bg-4 { 
+    background-color: #ffffff; /* White */
+}
+.bg-5 { 
+    background-color: #DCDCDC; /* Light Gray */
 }
 .container-fluid {
     padding-top: 70px;
