@@ -48,7 +48,7 @@
       <div class="col-sm-6 col-sm-offset-3 text-center container bg-2">
 
         <!-- FORM -->              <!-- action = the url where we want to POST -->
-        <form name="myForm" id="myForm" action="http://localhost:5000/users" method="POST">
+        <form name="myForm" id="myForm" action="http://localhost:8081/" method="POST">
 
             <!-- NAME -->
             <div id="name-group" class="form-group">
@@ -74,7 +74,7 @@
       <div class="row">
         <div class="col-sm-4">
           <p>Rick and Morty</p>
-          <img src="images/RickMorty.jpeg" class="img-responsive margin" style="width:40%" alt="Image">
+          <img src="images/RickMorty.png" class="img-responsive margin" style="width:40%" alt="Image">
         </div>
         <div class="col-sm-4"> 
           <p>Rock Climbing</p>
@@ -128,13 +128,15 @@
           data        : formData,
           dataType    : 'json',
           encode      : true,
+          crossDomain : true,   
           success: function(data) {
             console.log(data);
             console.log('process sucess');
           },
-          error: function() {
-            console.log('process error');
-          },
+          error: function(request, status, error) {
+            console.log('Error on request. ' + request.responseText);
+            alert('Error on request. ' + request.responseText);
+          }
         })
       });
 

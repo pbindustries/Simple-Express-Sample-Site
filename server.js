@@ -1,9 +1,10 @@
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 5000;
 var bodyParser = require('body-parser');
+var path = require('path');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+app.set('port', 8081);
 
 // add middleware
 app.use(function(req, res, next) {
@@ -16,17 +17,32 @@ res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Ty
 next();
 });
 
-// ROUTES 
-app.get('/', function(req, res) {
-  console.log(req.body);
-  res.send(req.body);
+// parameter middleware that will run before the next routes
+app.param('name', function(req, res, next, name) {
+    // save name to the request
+    req.name = name;
+    next();
 });
 
-app.post('/users', function(req, res) {
+app.use(express.static('staticFiles'));
+
+// ROUTES 
+
+// http://localhost:8081/users/philip
+app.get('/users/:name', function(req, res) {
+    // the user was found and is available in req.user
+    res.send('What is up ' + req.name + '!');
+});
+
+app.post('/', function(req, res) {
   console.log(req.body); 
  res.send(req.body);
 });
 
-// start the server
-app.listen(port);
-console.log('Server started! At http://localhost:' + port);
+var server = app.listen(app.get('port'), function () {
+   var host = server.address().address
+   var port = server.address().port
+
+   console.log("Example app listening at http://%s:%s", host, port)
+
+})
