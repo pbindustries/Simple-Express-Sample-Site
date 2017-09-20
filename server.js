@@ -24,7 +24,10 @@ app.param('name', function(req, res, next, name) {
     next();
 });
 
-app.use(express.static('staticFiles'));
+// app.use(express.static('staticFiles'));
+app.use(express.static(__dirname + '/staticFiles'));
+// app.use(express.static(__dirname + '/staticFiles/iframes'));
+// app.use(express.static(__dirname + '/staticFiles/images'));
 
 // ROUTES 
 
