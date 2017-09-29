@@ -2,9 +2,9 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
+var port = process.env.PORT || 5000;
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
-app.set('port', 8081);
 
 // add middleware
 app.use(function(req, res, next) {
@@ -42,10 +42,6 @@ app.post('/', function(req, res) {
  res.send(req.body);
 });
 
-var server = app.listen(app.get('port'), function () {
-   var host = server.address().address
-   var port = server.address().port
-
-   console.log("Example app listening at http://%s:%s", host, port)
-
-})
+// start the server
+app.listen(port);
+console.log('Server started! At http://localhost:' + port);
