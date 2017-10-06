@@ -28,7 +28,7 @@ app.use(express.static(__dirname + '/staticFiles'));
 
 // ROUTES 
 
-// http://localhost:8081/users/philip
+// http://localhost:5000/users/philip
 app.get('/users/:name', function(req, res) {
     // the user was found and is available in req.user
     res.send('What is up ' + req.name + '!');
