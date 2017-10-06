@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/2.2.0/topojson.min.js"></script>
   </head> 
 
   <body>
@@ -26,7 +28,7 @@
     </nav>
 
     <!-- TITLE -->
-    <div class="container-fluid text-center bg-6">
+    <div class="container-fluid text-center bg-1">
       <div style="background:transparent !important" class="jumbotron">
         <h1>Site</h1>
         <p>Info about this site</p>
@@ -42,7 +44,7 @@
     </div>
 
     <!-- FIRST CONTAINER -->
-    <div class="container-fluid bg-5">
+    <div class="container-fluid bg-7">
 
       <!-- FORM DIV -->
       <div class="col-sm-6 col-sm-offset-3 text-center container bg-2">
@@ -68,7 +70,7 @@
     </div>
 
     <!-- SECOND CONTAINER  -->
-    <div class="container-fluid bg-4 text-center">    
+    <div class="container-fluid bg-5 text-center">    
       <h3 class="margin">Some things i like:</h3><br>
       <h4 class="margin">(grid container can be redesigned or excluded completely depending on the project)</h3><br>
       <div class="row">
@@ -87,7 +89,17 @@
       </div>
     </div>
 
-        <!-- THIRD CONTAINER  -->
+    <!-- THIRD CONTAINER  -->
+    <!-- Fix map title -->
+    <!-- <div class="container-fluid text-center">
+      <H2>Pick a location:</H2>
+    </div>
+    -->
+    <!-- Call map.js -->
+    <div class="map bg-4" ></div>
+    <script type="text/javascript" src="map.js"></script>
+
+    <!-- FOURTH CONTAINER  -->
     <div class="container-fluid bg-5 text-center">    
       <h3 class="margin">Sample iframe container</h3>
       <h4 class="margin">(iframe container can be redesigned or excluded completely depending on the project)</h3><br>
@@ -102,7 +114,7 @@
     </div>
 
     <!-- FOOTER -->
-    <footer class="container-fluid bg-3 text-center">
+    <footer class="container-fluid bg-4 text-center">
       <p>Sample site footer</p> 
     </footer>
   </body>
