@@ -99,6 +99,26 @@
     <div class="map bg-4" ></div>
     <script type="text/javascript" src="map.js"></script>
 
+    <!-- FIRST CONTAINER -->
+    <div class="container-fluid bg-7">
+
+      <!-- FORM DIV -->
+      <div class="col-sm-6 col-sm-offset-3 text-center container bg-2">
+
+        <!-- FORM -->              <!-- action = the url where we want to POST -->
+        <form name="addressForm" id="addressForm" action="http://localhost:5000/address" method="POST">
+
+            <!-- ADDRESS -->
+            <div id="address-group" class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" name="address" placeholder="boom">
+            </div>
+
+            <button id="submit-button" class="btn btn-success">Submit <span class="fa fa-arrow-right"></span></button>
+        </form>
+      </div>
+    </div>
+
     <!-- FOURTH CONTAINER  -->
     <div class="container-fluid bg-5 text-center">    
       <h3 class="margin">Sample iframe container</h3>
@@ -139,6 +159,44 @@
           url         : formURL, 
           data        : formData,
           dataType    : 'json',
+          encode      : true,
+          crossDomain : true,   
+          success: function(data) {
+            console.log(data);
+            console.log('process sucess');
+          },
+          error: function(request, status, error) {
+            console.log('Error on request. ' + request.responseText);
+            alert('Error on request. ' + request.responseText);
+          }
+        })
+      });
+
+      //Submit  the FORM
+      $("form").submit(function(){ 
+        alert("Submitted");
+      });
+    });
+  </script>
+  <script>
+    // POST
+    $(document).ready(function() {
+
+      //callback handler for form submit
+      $('#addressForm').submit(function(event) {
+
+        // stop default action
+        event.preventDefault();
+
+        // get the form data
+        var formData = $(this).serializeArray();
+        var formURL = $(this).attr("action");
+
+        // process the form
+        $.ajax({
+          type        : 'POST',
+          url         : formURL, 
+          data        : formData,
           encode      : true,
           crossDomain : true,   
           success: function(data) {

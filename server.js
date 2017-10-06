@@ -1,4 +1,5 @@
 var express = require('express');
+var NodeGeocoder = require('node-geocoder');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
@@ -37,6 +38,40 @@ app.get('/users/:name', function(req, res) {
 app.post('/', function(req, res) {
   console.log(req.body); 
  res.send(req.body);
+});
+
+app.post('/address', function(req, res) {
+
+	// Tester code
+	console.log(req.body[address]); 
+	res.send(req.body[address]);
+	console.log(req.body); 
+	res.send(req.body);
+
+	var options = { 
+		provider: 'google',
+
+		// Optional depending on the providers
+		httpAdapter: 'https', // Default
+		// apiKey: 'options.clientIdand options.apiKey', 
+		formatter: null         // 'gpx', 'string', ...
+	};
+
+	var geocoder = NodeGeocoder(options);
+
+	// Using callback
+	geocoder.geocode(req.body[address], function(err, res) {
+		console.log(res);
+	});
+
+	// // Or using Promise
+	// geocoder.geocode(req.body[address])
+	// .then(function(res) {
+	//   console.log(res);
+	// })
+	// .catch(function(err) {
+	//   console.log(err);
+	// });
 });
 
 // start the server
