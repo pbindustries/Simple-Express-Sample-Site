@@ -1,5 +1,14 @@
 # Sample-site
-Basic starter site for future projects
+Basic starter site for future projects. I suggest downloading the project and removing the containers that you don't need.
+## Page sections
+* Navbar
+* Title
+* First container - form for POST
+* Second container - grid with columns
+* Third container - D3 class with sample map
+* Fourth container - address -> coordinate translator
+* Fifth container - sample iframe 
+* Footer
 ## Installation
 Either download this repository as a zip or clone it.
 * To clone this repoitory:
