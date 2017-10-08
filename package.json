@@ -19,6 +19,7 @@
   "homepage": "https://github.com/philipbankier/Sample-site#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "browser-refresh": "^1.7.2",
     "express": "^4.16.1",
     "mongod": "^2.0.0",
     "mongodb": "^2.2.31",

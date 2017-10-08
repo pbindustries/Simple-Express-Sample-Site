@@ -43,10 +43,10 @@ app.post('/', function(req, res) {
 app.post('/address', function(req, res) {
 
 	// Tester code
-	console.log(req.body[address]); 
-	res.send(req.body[address]);
-	console.log(req.body); 
-	res.send(req.body);
+	// console.log(req.body); 
+	// res.send(req.body);
+	console.log(req.body.address); 
+	res.send(req.body.address);
 
 	var options = { 
 		provider: 'google',
@@ -60,7 +60,7 @@ app.post('/address', function(req, res) {
 	var geocoder = NodeGeocoder(options);
 
 	// Using callback
-	geocoder.geocode(req.body[address], function(err, res) {
+	geocoder.geocode(req.body.address, function(err, res) {
 		console.log(res);
 	});
 
@@ -75,5 +75,10 @@ app.post('/address', function(req, res) {
 });
 
 // start the server
-app.listen(port);
+app.listen(port, function() {
 console.log('Server started! At http://localhost:' + port);
+	 
+	 if (process.send) {
+        process.send('online');
+    }
+});
